@@ -48,7 +48,8 @@ class FSMInterface:
         """Exports the current FSM state and writes it to the JSON file using FSMClient."""
         state_dict = self.fsm.export_state()
         fsm_client = FSMClient()
-        fsm_client.set_state(state_dict, source="FSMInterface", trigger="sync_to_disk")
+        meta = {"trigger": "sync_to_disk", "context": state_dict, "source": "FSMInterface"}
+        fsm_client.set_state(state_dict.get("current_state", "UNKNOWN"), meta)
 
     def trigger_event(self, event, meta=None):
         """
