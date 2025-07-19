@@ -1,7 +1,9 @@
 import os
 import sys
+
 from core.localization_manager import loc
 from core.fsm_client import FSMClient  # Use the client to send requests
+
 
 class Assistant:
     def __init__(self):
@@ -26,7 +28,7 @@ class Assistant:
                 print(f"Sending event: {event}")
                 self.fsm_client.send_event(event, source='assistant')
             else:
-                print(f"Usage: fsm <event>")
+                print("Usage: fsm <event>")
         elif main_cmd in ["h", "help"]:
             self._display_help()
         elif main_cmd == "clear":

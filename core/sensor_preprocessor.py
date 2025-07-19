@@ -93,6 +93,13 @@ class SensorPreprocessor:
         print("[Preprocessor] Returning cleaned sensor data.")
         return self.processed_data
 
+    def collect_statuses(self) -> dict:
+        """Return status of each sensor cluster."""
+        statuses = {}
+        for cluster, data in self.processed_data.items():
+            statuses[cluster] = data.get("status", "UNKNOWN")
+        return statuses
+
 def test():
     print("\n--- Running SensorPreprocessor Test ---")
 

@@ -1,14 +1,15 @@
 import os
-import json
 import time
 import random
 import logging
 from datetime import datetime
-from core.shared_bus_manager import SharedBusManager # Import SharedBusManager
+from core.shared_bus_manager import SharedBusManager  # Import SharedBusManager
 
 # --- CONFIGURATION ---
 # SHARED_BUS_FILE is now managed by SharedBusManager
-LOG_FILE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'logs', 'comm_link.log'))
+LOG_FILE = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), '..', 'logs', 'comm_link.log')
+)
 UPDATE_INTERVAL = 3  # seconds
 
 # --- LOGGING SETUP ---

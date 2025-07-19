@@ -61,8 +61,16 @@ class SensorBus:
                 active_clusters = 0
 
                 for name, cluster in self.clusters.items():
-                    cluster.update()
-                    cluster.validate() # Run validation after update
+                    try:
+                        cluster.update()
+                    except Exception as e:  # noqa: BLE001
+                        cluster.data["status"] = "FAIL"
+                        cluster._add_error(f"Update failed: {e}")
+                        self._log(
+                            f"ERROR: Cluster '{cluster.get_name()}' update failed: {e}"
+                        )
+
+                    cluster.validate()  # Run validation after update
                     full_sensor_data[name] = cluster.serialize()
                     
                     status = cluster.data.get("status", "UNKNOWN")
