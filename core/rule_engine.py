@@ -10,7 +10,7 @@ sys.path.append(project_root)
 
 from core.telemetry import TelemetryManager
 from core.sensors import SensorManager
-from core.fsm import SimpleFSM
+from core.fsm_client import FSMClient
 from core.file_paths import (
     TELEMETRY_FILE,
     SENSORS_FILE,
@@ -19,19 +19,31 @@ from core.file_paths import (
     RULES_LOG_FILE,
 )
 
+
+def log_rule_trigger(rule_id: str, event: str, source: str, value: str) -> None:
+    """Append information about a triggered rule to rules_log.txt."""
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    os.makedirs(os.path.dirname(RULES_LOG_FILE), exist_ok=True)
+    with open(RULES_LOG_FILE, "a") as f:
+        f.write(f"[{timestamp}] Rule {rule_id} TRIGGERED\n")
+        f.write(f"  Event: {event}, Source: {source}, Value: {value}\n\n")
+
 class RuleEngine:
-    def __init__(self):
-        self.fsm = SimpleFSM()
+    """Core rule evaluation engine with cached rules."""
+
+    def __init__(self, rule_path: str = RULES_FILE):
+        self.rule_path = rule_path
+        self.fsm = FSMClient()
         self.telemetry_manager = TelemetryManager()
         self.sensor_manager = SensorManager()
-        self.rules = self._load_rules()
         self.rules_log_file = RULES_LOG_FILE
         os.makedirs(os.path.dirname(self.rules_log_file), exist_ok=True)
+        self.rules = self.load_rules()
         print("RuleEngine initialized.")
 
-    def _load_rules(self) -> list:
-        """Loads rules from rules.json or creates a default if not found/corrupt."""
-        if not os.path.exists(RULES_FILE):
+    def load_rules(self) -> list:
+        """Load rules from disk or create defaults if the file doesn't exist."""
+        if not os.path.exists(self.rule_path):
             print(f"Info: {RULES_FILE} not found. Creating with default rules.")
             default_rules = [
                 {
@@ -71,31 +83,31 @@ class RuleEngine:
                     "priority": 0
                 }
             ]
-            os.makedirs(os.path.dirname(RULES_FILE), exist_ok=True)
+            os.makedirs(os.path.dirname(self.rule_path), exist_ok=True)
             try:
-                with open(RULES_FILE, 'w') as f:
+                with open(self.rule_path, 'w') as f:
                     json.dump(default_rules, f, indent=2)
-                print(f"Info: Successfully created default {RULES_FILE}.")
+                print(f"Info: Successfully created default {self.rule_path}.")
             except IOError as e:
-                print(f"Error: Could not write default {RULES_FILE}: {e}")
+                print(f"Error: Could not write default {self.rule_path}: {e}")
             return default_rules
 
         try:
-            with open(RULES_FILE, 'r') as f:
+            with open(self.rule_path, 'r') as f:
                 rules = json.load(f)
-                print(f"Info: Successfully loaded rules from {RULES_FILE}.")
+                print(f"Info: Successfully loaded rules from {self.rule_path}.")
                 # Sort rules by priority (lower number = higher priority)
                 return sorted(rules, key=lambda x: x.get('priority', 999))
         except json.JSONDecodeError as e:
-            print(f"Error: Corrupt JSON in {RULES_FILE}: {e}. Returning empty rules list.")
+            print(f"Error: Corrupt JSON in {self.rule_path}: {e}. Returning empty rules list.")
             return []
         except Exception as e:
-            print(f"Error: Unexpected error reading {RULES_FILE}: {e}. Returning empty rules list.")
+            print(f"Error: Unexpected error reading {self.rule_path}: {e}. Returning empty rules list.")
             return []
 
     def reload_rules(self) -> None:
         """Reload rules from disk into the cache."""
-        self.rules = self._load_rules()
+        self.rules = self.load_rules()
 
     def _log_rule_fire(self, rule_name: str, action: str) -> None:
         with open(self.rules_log_file, "a") as f:
@@ -153,8 +165,8 @@ class RuleEngine:
 
         return operators[op](actual_value, target_value)
 
-    def _evaluate_complex_condition(self, condition_str: str, data_context: dict) -> bool:
-        """Evaluates complex conditions with 'and'/'or' operators."""
+    def check_condition(self, condition_str: str, data_context: dict) -> bool:
+        """Evaluate conditions with 'and' and 'or' operators."""
         # This is a simplified parser for 'and'/'or' and assumes no parentheses
         # For more complex logic, a proper expression parser would be needed.
 
@@ -167,35 +179,40 @@ class RuleEngine:
         else:
             return self._evaluate_single_condition(condition_str, data_context)
 
+    def evaluate(self, telemetry: dict, fsm_state: str, sensors: dict | None = None) -> list:
+        """Return a list of rules that are triggered for the given state."""
+        sensors = sensors or {}
+        data_context = {"telemetry": telemetry, "sensors": sensors, "fsm": {"state": fsm_state}}
+        triggered = []
+        for rule in self.rules:
+            name = rule.get("name", "Unnamed Rule")
+            cond = rule.get("condition")
+            if not cond:
+                continue
+            try:
+                if self.check_condition(cond, data_context):
+                    triggered.append(rule)
+            except Exception as e:
+                print(f"[RuleEngine] Failed to evaluate rule '{name}': {e}")
+        return triggered
+
     def run_once(self) -> str | None:
         """Checks rules and returns the event of the first matching rule."""
         telemetry_data = self.telemetry_manager.get()
         sensor_data = self.sensor_manager.get()
-        fsm_state = self.fsm.get_state()
+        fsm_state = self.fsm.get_state().get("state")
 
-        data_context = {
-            "telemetry": telemetry_data,
-            "sensors": sensor_data,
-            "fsm": {"state": fsm_state}
-        }
-
-        for rule in self.rules:
-            rule_name = rule.get('name', 'Unnamed Rule')
-            condition_str = rule.get('condition')
+        triggered = self.evaluate(telemetry_data, fsm_state, sensor_data)
+        if triggered:
+            rule = triggered[0]
+            name = rule.get('name', 'Unnamed Rule')
             action = rule.get('action')
+            print(f"[Rule Engine] Rule '{name}' is TRUE. Proposing event '{action}'.")
+            self._log_rule_fire(name, action)
+            log_rule_trigger(name, action, "rule_engine", str(telemetry_data))
+            return action
 
-            if not condition_str or not action:
-                continue
-
-            try:
-                if self._evaluate_complex_condition(condition_str, data_context):
-                    print(f"[Rule Engine] Rule '{rule_name}' is TRUE. Proposing event '{action}'.")
-                    self._log_rule_fire(rule_name, action)
-                    return action  # Return the event name
-            except Exception as e:
-                print(f"[Rule Engine] ERROR evaluating rule '{rule_name}': {e}")
-        
-        return None # No rule fired
+        return None  # No rule fired
 
     def run_loop(self, interval: int = 2):
         """Regularly applies rules in a loop."""
@@ -219,8 +236,8 @@ if __name__ == "__main__":
         sm.update()
     
     if not os.path.exists(FSM_STATE_FILE):
-        fsm = SimpleFSM()
-        pass # FSM handles its own file creation
+        fsm = FSMClient()
+        fsm.set_state({"state": "idle", "mode": "idle", "task": "none", "status": "ok", "last_event": "init", "timestamp": time.time(), "source": "rule_engine"})
 
     engine = RuleEngine()
     
