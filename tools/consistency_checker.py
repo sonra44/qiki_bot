@@ -15,7 +15,7 @@ from typing import Dict, Any, List
 # Ensure the script can find the core modules
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from core.file_paths import FSM_STATE_FILE, SENSORS_FILE, TELEMETRY_FILE, MISSION_STATUS_FILE
-from core.fsm_client import read_fsm_state
+from core.fsm_client import FSMClient
 
 # --- Log Setup ---
 LOG_DIR = os.path.join(os.path.dirname(__file__), '..', 'logs')
@@ -39,6 +39,7 @@ class ConsistencyChecker:
     def __init__(self, verbose=False):
         self.verbose = verbose
         self.issues = []
+        self.fsm_client = FSMClient()
 
     def log_issue(self, level: str, check_type: str, message: str, details: Dict[str, Any]):
         """Logs a consistency issue."""
@@ -89,7 +90,7 @@ class ConsistencyChecker:
         self.issues = []
         
         # 1. Load all state files
-        fsm_state = read_fsm_state()
+        fsm_state = self.fsm_client.get_state()
         sensors = self.load_json_safely(SENSORS_FILE)
         telemetry = self.load_json_safely(TELEMETRY_FILE)
         mission = self.load_json_safely(MISSION_STATUS_FILE)

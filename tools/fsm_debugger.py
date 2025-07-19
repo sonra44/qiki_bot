@@ -12,11 +12,13 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from core.fsm_io import enqueue_event
-from core.fsm_client import read_fsm_state
+from core.fsm_client import FSMClient
+
+fsm_client = FSMClient()
 
 def print_status():
     """Prints the current FSM state."""
-    state = read_fsm_state()
+    state = fsm_client.get_state()
     print(json.dumps(state, indent=4))
 
 def step_fsm(event):
@@ -26,7 +28,7 @@ def step_fsm(event):
 
 def list_transitions():
     """Lists the possible transitions from the current state."""
-    state = read_fsm_state()
+    state = fsm_client.get_state()
     if 'possible_transitions' in state:
         print("Possible transitions:")
         for transition in state['possible_transitions']:
