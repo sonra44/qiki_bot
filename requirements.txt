@@ -1,0 +1,4 @@
+pytest
+numpy
+filelock
+pyyaml

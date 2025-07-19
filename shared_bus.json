@@ -1,0 +1,46 @@
+{
+  "agent_001": {
+    "state": "idle",
+    "last_update": "2025-07-15T14:47:56",
+    "battery": 100.0,
+    "position": [
+      0.0,
+      0.0
+    ],
+    "role": "default",
+    "status": "ready",
+    "type": "unknown",
+    "name": "Agent One",
+    "impulse_active": false,
+    "id": "agent_001",
+    "comm": {
+      "agent_002": {
+        "latency_ms": 237.3,
+        "rssi_db": -64.1,
+        "status": "weak"
+      }
+    }
+  },
+  "agent_002": {
+    "state": "active",
+    "last_update": "2025-07-15T14:47:56",
+    "battery": 100.0,
+    "position": [
+      0.0,
+      0.0
+    ],
+    "role": "default",
+    "status": "ready",
+    "type": "unknown",
+    "name": "Agent Two",
+    "impulse_active": false,
+    "id": "agent_002",
+    "comm": {
+      "agent_001": {
+        "latency_ms": 211.5,
+        "rssi_db": -87.4,
+        "status": "weak"
+      }
+    }
+  }
+}

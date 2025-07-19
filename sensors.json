@@ -1,0 +1,220 @@
+{
+    "navigation": {
+        "status": "OK",
+        "last_update_timestamp": null,
+        "errors": [],
+        "star_tracker": {
+            "is_locked": true,
+            "tracking_stars": 46
+        },
+        "gyroscope": {
+            "pitch_rate": -0.01,
+            "yaw_rate": -0.04,
+            "roll_rate": -0.05
+        },
+        "imu": {
+            "accel_x": -0.06,
+            "accel_y": -0.08,
+            "accel_z": -9.79,
+            "orientation_q": [
+                1,
+                0,
+                0,
+                0
+            ]
+        }
+    },
+    "power": {
+        "status": "OK",
+        "last_update_timestamp": null,
+        "errors": [],
+        "battery_main": {
+            "voltage": 12.5,
+            "current": -1.06,
+            "temperature": 25.21,
+            "soc": 74.96999999998822
+        },
+        "solar_panels": {
+            "voltage": 0.0,
+            "current": 0.0,
+            "is_charging": false
+        },
+        "power_bus": {
+            "main_bus_voltage": 12.4,
+            "load_current": 3.1
+        }
+    },
+    "thermal": {
+        "status": "OK",
+        "last_update_timestamp": null,
+        "errors": [],
+        "core_temp": {
+            "cpu": 44.18,
+            "gpu": 53.79
+        },
+        "radiators": {
+            "panel_a_temp": -10.75,
+            "panel_b_temp": -9.84
+        },
+        "heat_pipes": {
+            "flow_rate": 1.47,
+            "pressure": 2.05
+        }
+    },
+    "structural": {
+        "status": "OK",
+        "last_update_timestamp": null,
+        "errors": [],
+        "strain_gauges": {
+            "hull_main": 0.1,
+            "solar_panel_joint": 0.05
+        },
+        "vibration": {
+            "x_axis": 0.01,
+            "y_axis": 0.02,
+            "z_axis": 0.01
+        },
+        "hull_pressure": {
+            "internal": 101.21,
+            "external": 0.0
+        }
+    },
+    "system_health": {
+        "status": "ERROR",
+        "last_update_timestamp": null,
+        "errors": [
+            "Multiple ECC memory errors detected."
+        ],
+        "data_bus": {
+            "load_percentage": 10.7,
+            "errors_per_minute": 0
+        },
+        "processor": {
+            "load_percentage": 15.75,
+            "core_voltage": 1.09
+        },
+        "memory": {
+            "ram_used_percentage": 32.74,
+            "ecc_errors": 22
+        }
+    },
+    "thrusters": {
+        "status": "OK",
+        "last_update_timestamp": null,
+        "errors": [],
+        "thrusters": {
+            "main_engine": {
+                "thrust": 0,
+                "fuel_flow": 0,
+                "temperature": 15
+            },
+            "rcs_quad_a": {
+                "thrust": 0,
+                "temperature": 15
+            },
+            "rcs_quad_b": {
+                "thrust": 0,
+                "temperature": 15
+            }
+        },
+        "gimbal": {
+            "main_engine_pitch": -1.52,
+            "main_engine_yaw": -1.69
+        }
+    },
+    "rlsm": {
+        "status": "OK",
+        "last_update_timestamp": null,
+        "errors": [],
+        "radar": {
+            "target_detected": false,
+            "range": 0,
+            "azimuth": 0,
+            "elevation": 0
+        },
+        "lidar": {
+            "point_cloud_density": 86.17,
+            "objects_detected": 6
+        },
+        "spectrometer": {
+            "composition": {},
+            "signal_strength": 0
+        },
+        "magnetometer": {
+            "field_strength": 51.31,
+            "vector": [
+                0.99,
+                -0.61,
+                -0.48
+            ]
+        }
+    },
+    "proximity": {
+        "status": "OK",
+        "last_update_timestamp": null,
+        "errors": [],
+        "docking_sensors": {
+            "front_distance": 999,
+            "rear_distance": 4.49
+        },
+        "collision_avoidance": {
+            "min_distance": 64.9,
+            "collision_imminent": false
+        },
+        "range_finders": {
+            "target_range": 0,
+            "target_locked": false
+        }
+    },
+    "environment": {
+        "status": "OK",
+        "last_update_timestamp": null,
+        "errors": [],
+        "radiation_detector": {
+            "level_sv": 0.0,
+            "is_alert": false
+        },
+        "micrometeorite_detector": {
+            "impacts_last_hour": 21,
+            "last_impact_energy_j": 0.16
+        },
+        "plasma_density": {
+            "density_cm3": 5.19
+        }
+    },
+    "communication": {
+        "status": "OK",
+        "last_update_timestamp": null,
+        "errors": [],
+        "signal_strength": {
+            "rssi": -73.86,
+            "snr": 15.02
+        },
+        "antenna": {
+            "azimuth": 180.0,
+            "elevation": 45.0,
+            "is_tracking": true
+        },
+        "data_link": {
+            "ber": 0.0,
+            "bandwidth_mbps": 100.0
+        }
+    },
+    "ew": {
+        "status": "OK",
+        "last_update_timestamp": null,
+        "errors": [],
+        "jamming_detector": {
+            "is_jammed": false,
+            "jamming_frequency": 0
+        },
+        "signal_interceptor": {
+            "signals_detected": 3,
+            "strongest_signal_db": -91.21
+        },
+        "emcon_monitor": {
+            "current_level": "A",
+            "is_active": true
+        }
+    }
+}
