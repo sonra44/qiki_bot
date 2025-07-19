@@ -1,6 +1,7 @@
 import json
 import os
 import time
+from datetime import datetime
 
 # Add project root to sys.path for imports
 import sys
@@ -10,8 +11,13 @@ sys.path.append(project_root)
 from core.telemetry import TelemetryManager
 from core.sensors import SensorManager
 from core.fsm import SimpleFSM
-from core.file_paths import TELEMETRY_FILE, SENSORS_FILE, FSM_STATE_FILE, RULES_FILE
-from core.file_paths import RULES_FILE
+from core.file_paths import (
+    TELEMETRY_FILE,
+    SENSORS_FILE,
+    FSM_STATE_FILE,
+    RULES_FILE,
+    RULES_LOG_FILE,
+)
 
 class RuleEngine:
     def __init__(self):
@@ -19,6 +25,8 @@ class RuleEngine:
         self.telemetry_manager = TelemetryManager()
         self.sensor_manager = SensorManager()
         self.rules = self._load_rules()
+        self.rules_log_file = RULES_LOG_FILE
+        os.makedirs(os.path.dirname(self.rules_log_file), exist_ok=True)
         print("RuleEngine initialized.")
 
     def _load_rules(self) -> list:
@@ -84,6 +92,15 @@ class RuleEngine:
         except Exception as e:
             print(f"Error: Unexpected error reading {RULES_FILE}: {e}. Returning empty rules list.")
             return []
+
+    def reload_rules(self) -> None:
+        """Reload rules from disk into the cache."""
+        self.rules = self._load_rules()
+
+    def _log_rule_fire(self, rule_name: str, action: str) -> None:
+        with open(self.rules_log_file, "a") as f:
+            ts = datetime.utcnow().isoformat()
+            f.write(f"{ts} - {rule_name} -> {action}\n")
 
     def _get_value_from_path(self, data: dict, path: str):
         """Helper to get a nested value from a dictionary using dot notation."""
@@ -173,7 +190,8 @@ class RuleEngine:
             try:
                 if self._evaluate_complex_condition(condition_str, data_context):
                     print(f"[Rule Engine] Rule '{rule_name}' is TRUE. Proposing event '{action}'.")
-                    return action # Return the event name
+                    self._log_rule_fire(rule_name, action)
+                    return action  # Return the event name
             except Exception as e:
                 print(f"[Rule Engine] ERROR evaluating rule '{rule_name}': {e}")
         
