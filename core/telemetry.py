@@ -14,10 +14,6 @@ def banner(title: str, description: str):
     print("=" * 80)
     print()
 
-banner(
-    title="Telemetry Manager / Менеджер Телеметрии",
-    description="Управляет данными телеметрии QIKI Bot."
-)
 
 class TelemetryManager:
     DEFAULT_TELEMETRY: Dict[str, Any] = {
@@ -104,6 +100,10 @@ class TelemetryManager:
 
 # Example usage (for testing this module directly)
 if __name__ == "__main__":
+    banner(
+        title="Telemetry Manager / Менеджер Телеметрии",
+        description="Управляет данными телеметрии QIKI Bot."
+    )
     print("--- TelemetryManager Test ---")
 
     # Clean up old telemetry.json for a fresh start

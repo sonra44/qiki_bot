@@ -24,10 +24,6 @@ def banner(title: str, description: str):
     print("=" * 80)
     print()
 
-banner(
-    title="Mission Executor / Исполнитель Миссий",
-    description="Загружает и выполняет пошаговые стратегические миссии."
-)
 # --- End Banner ---
 
 class MissionExecutor:
@@ -119,5 +115,9 @@ class MissionExecutor:
         print("--- Mission Complete ---")
 
 if __name__ == "__main__":
+    banner(
+        title="Mission Executor / Исполнитель Миссий",
+        description="Загружает и выполняет пошаговые стратегические миссии."
+    )
     executor = MissionExecutor()
     executor.run_mission()
