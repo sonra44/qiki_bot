@@ -1,0 +1,25 @@
+{
+  "comm_ping": {
+    "latency_ms": 0.0,
+    "rssi_db": 0
+  },
+  "gyro": {
+    "angular_vel_x": 0.0,
+    "angular_vel_y": 0.0,
+    "angular_vel_z": 0.0,
+    "drift": 0.0
+  },
+  "imu": {
+    "acc_x": 0.0,
+    "acc_y": 0.0,
+    "acc_z": 0.0,
+    "pitch": 0.0,
+    "roll": 0.0,
+    "yaw": 0.0
+  },
+  "magnetometer": {
+    "field_strength": 0.0
+  },
+  "proximity": 0.0,
+  "thermo_cam": 0.0
+}

@@ -1,0 +1,9 @@
+{
+  "battery_percent": 99.8,
+  "power_wh": 499.1,
+  "speed_mps": 0.0,
+  "consumption_w": 5.0,
+  "velocity": 0.0,
+  "acceleration": 0.0,
+  "impulse_active": false
+}

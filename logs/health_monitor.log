@@ -1,0 +1,545 @@
+2025-07-14 18:13:39 [INFO] All systems nominal.
+2025-07-15 12:44:37 [INFO] All systems nominal.
+2025-07-15 12:45:29 [INFO] All systems nominal.
+2025-07-15 12:45:44 [INFO] All systems nominal.
+2025-07-15 12:45:56 [INFO] All systems nominal.
+2025-07-15 12:46:21 [ERROR][sensors] Obstacle too close: 6.3
+2025-07-15 12:46:21 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:46:43 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:46:48 [INFO] All systems nominal.
+2025-07-15 12:46:53 [INFO] All systems nominal.
+2025-07-15 12:46:58 [INFO] All systems nominal.
+2025-07-15 12:47:03 [INFO] All systems nominal.
+2025-07-15 12:47:08 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:47:13 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:47:18 [INFO] All systems nominal.
+2025-07-15 12:47:23 [INFO] All systems nominal.
+2025-07-15 12:47:28 [INFO] All systems nominal.
+2025-07-15 12:47:33 [INFO] All systems nominal.
+2025-07-15 12:47:50 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:48:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:52:01 [INFO] All systems nominal.
+2025-07-15 12:52:06 [INFO] All systems nominal.
+2025-07-15 12:52:19 [INFO] All systems nominal.
+2025-07-15 12:52:24 [INFO] All systems nominal.
+2025-07-15 12:52:29 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:52:34 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:52:39 [INFO] All systems nominal.
+2025-07-15 12:52:44 [INFO] All systems nominal.
+2025-07-15 12:53:19 [INFO] All systems nominal.
+2025-07-15 12:53:24 [INFO] All systems nominal.
+2025-07-15 12:53:29 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:53:34 [ERROR][sensors] Obstacle too close: 5.1
+2025-07-15 12:53:34 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:53:39 [INFO] All systems nominal.
+2025-07-15 12:53:44 [INFO] All systems nominal.
+2025-07-15 12:53:49 [INFO] All systems nominal.
+2025-07-15 12:53:54 [INFO] All systems nominal.
+2025-07-15 12:53:59 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:54:04 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:54:09 [INFO] All systems nominal.
+2025-07-15 12:54:14 [INFO] All systems nominal.
+2025-07-15 12:54:19 [INFO] All systems nominal.
+2025-07-15 12:54:24 [ERROR][sensors] Obstacle too close: 5.9
+2025-07-15 12:54:29 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:54:34 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:54:39 [INFO] All systems nominal.
+2025-07-15 12:54:44 [INFO] All systems nominal.
+2025-07-15 12:54:49 [INFO] All systems nominal.
+2025-07-15 12:54:54 [INFO] All systems nominal.
+2025-07-15 12:54:59 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:55:04 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:55:09 [INFO] All systems nominal.
+2025-07-15 12:55:14 [INFO] All systems nominal.
+2025-07-15 12:55:19 [INFO] All systems nominal.
+2025-07-15 12:55:24 [ERROR][sensors] Obstacle too close: 4.5
+2025-07-15 12:55:29 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:55:34 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:55:39 [INFO] All systems nominal.
+2025-07-15 12:55:44 [INFO] All systems nominal.
+2025-07-15 12:55:49 [INFO] All systems nominal.
+2025-07-15 12:55:54 [INFO] All systems nominal.
+2025-07-15 12:55:59 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:56:04 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:56:09 [ERROR][sensors] Obstacle too close: 3.3
+2025-07-15 12:56:14 [INFO] All systems nominal.
+2025-07-15 12:56:19 [INFO] All systems nominal.
+2025-07-15 12:56:24 [INFO] All systems nominal.
+2025-07-15 12:56:29 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:56:34 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:56:39 [INFO] All systems nominal.
+2025-07-15 12:56:44 [INFO] All systems nominal.
+2025-07-15 12:56:49 [INFO] All systems nominal.
+2025-07-15 12:56:54 [INFO] All systems nominal.
+2025-07-15 12:56:59 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:57:04 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:57:09 [INFO] All systems nominal.
+2025-07-15 12:57:14 [INFO] All systems nominal.
+2025-07-15 12:57:19 [ERROR][sensors] Obstacle too close: 6.2
+2025-07-15 12:57:24 [INFO] All systems nominal.
+2025-07-15 12:57:29 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:57:55 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:58:00 [INFO] All systems nominal.
+2025-07-15 12:58:08 [INFO] All systems nominal.
+2025-07-15 12:58:13 [INFO] All systems nominal.
+2025-07-15 12:58:18 [INFO] All systems nominal.
+2025-07-15 12:58:23 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:58:28 [ERROR][sensors] Obstacle too close: 5.7
+2025-07-15 12:58:28 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:58:34 [INFO] All systems nominal.
+2025-07-15 12:58:53 [INFO] All systems nominal.
+2025-07-15 12:58:58 [INFO] All systems nominal.
+2025-07-15 12:59:03 [INFO] All systems nominal.
+2025-07-15 12:59:08 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:59:13 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:59:18 [INFO] All systems nominal.
+2025-07-15 12:59:23 [ERROR][sensors] Obstacle too close: 6.9
+2025-07-15 12:59:28 [INFO] All systems nominal.
+2025-07-15 12:59:33 [INFO] All systems nominal.
+2025-07-15 12:59:38 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:59:43 [ERROR][fsm] FSM in ERROR state
+2025-07-15 12:59:48 [INFO] All systems nominal.
+2025-07-15 12:59:53 [INFO] All systems nominal.
+2025-07-15 12:59:58 [ERROR][sensors] Obstacle too close: 5.3
+2025-07-15 13:00:03 [INFO] All systems nominal.
+2025-07-15 13:00:08 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:00:13 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:00:18 [INFO] All systems nominal.
+2025-07-15 13:00:23 [INFO] All systems nominal.
+2025-07-15 13:00:28 [INFO] All systems nominal.
+2025-07-15 13:00:33 [INFO] All systems nominal.
+2025-07-15 13:00:39 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:00:45 [ERROR][sensors] Obstacle too close: 5.0
+2025-07-15 13:00:45 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:00:50 [INFO] All systems nominal.
+2025-07-15 13:00:55 [INFO] All systems nominal.
+2025-07-15 13:01:00 [INFO] All systems nominal.
+2025-07-15 13:01:06 [INFO] All systems nominal.
+2025-07-15 13:01:11 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:01:16 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:01:21 [INFO] All systems nominal.
+2025-07-15 13:01:27 [INFO] All systems nominal.
+2025-07-15 13:01:33 [INFO] All systems nominal.
+2025-07-15 13:01:38 [INFO] All systems nominal.
+2025-07-15 13:01:43 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:01:48 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:01:53 [INFO] All systems nominal.
+2025-07-15 13:01:58 [INFO] All systems nominal.
+2025-07-15 13:02:03 [INFO] All systems nominal.
+2025-07-15 13:02:08 [ERROR][sensors] Obstacle too close: 6.5
+2025-07-15 13:02:13 [ERROR][sensors] Obstacle too close: 4.7
+2025-07-15 13:02:13 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:02:18 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:02:23 [INFO] All systems nominal.
+2025-07-15 13:02:28 [INFO] All systems nominal.
+2025-07-15 13:02:33 [ERROR][sensors] Obstacle too close: 5.3
+2025-07-15 13:02:38 [INFO] All systems nominal.
+2025-07-15 13:02:43 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:02:48 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:02:53 [ERROR][sensors] Obstacle too close: 6.7
+2025-07-15 13:02:58 [INFO] All systems nominal.
+2025-07-15 13:03:03 [INFO] All systems nominal.
+2025-07-15 13:03:08 [ERROR][sensors] Obstacle too close: 6.7
+2025-07-15 13:03:13 [ERROR][sensors] Obstacle too close: 6.2
+2025-07-15 13:03:13 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:03:18 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:03:23 [INFO] All systems nominal.
+2025-07-15 13:03:28 [INFO] All systems nominal.
+2025-07-15 13:03:33 [INFO] All systems nominal.
+2025-07-15 13:03:38 [ERROR][sensors] Obstacle too close: 5.2
+2025-07-15 13:03:43 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:03:48 [INFO] All systems nominal.
+2025-07-15 13:03:53 [INFO] All systems nominal.
+2025-07-15 13:03:58 [INFO] All systems nominal.
+2025-07-15 13:04:03 [INFO] All systems nominal.
+2025-07-15 13:04:08 [INFO] All systems nominal.
+2025-07-15 13:04:13 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:04:18 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:04:23 [ERROR][sensors] Obstacle too close: 4.1
+2025-07-15 13:04:28 [INFO] All systems nominal.
+2025-07-15 13:04:33 [INFO] All systems nominal.
+2025-07-15 13:04:38 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:04:43 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:04:48 [INFO] All systems nominal.
+2025-07-15 13:04:53 [INFO] All systems nominal.
+2025-07-15 13:04:58 [INFO] All systems nominal.
+2025-07-15 13:05:03 [INFO] All systems nominal.
+2025-07-15 13:05:08 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:05:13 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:05:18 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:05:23 [INFO] All systems nominal.
+2025-07-15 13:05:28 [INFO] All systems nominal.
+2025-07-15 13:05:33 [INFO] All systems nominal.
+2025-07-15 13:05:38 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:05:43 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:05:48 [ERROR][sensors] Obstacle too close: 5.2
+2025-07-15 13:05:53 [INFO] All systems nominal.
+2025-07-15 13:05:58 [INFO] All systems nominal.
+2025-07-15 13:06:03 [INFO] All systems nominal.
+2025-07-15 13:06:08 [ERROR][sensors] Obstacle too close: 4.3
+2025-07-15 13:06:08 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:06:13 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:06:18 [INFO] All systems nominal.
+2025-07-15 13:06:23 [INFO] All systems nominal.
+2025-07-15 13:06:28 [INFO] All systems nominal.
+2025-07-15 13:06:33 [INFO] All systems nominal.
+2025-07-15 13:06:38 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:06:43 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:06:48 [ERROR][sensors] Obstacle too close: 6.6
+2025-07-15 13:06:53 [INFO] All systems nominal.
+2025-07-15 13:06:58 [INFO] All systems nominal.
+2025-07-15 13:07:03 [INFO] All systems nominal.
+2025-07-15 13:07:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:07:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:07:45 [INFO] All systems nominal.
+2025-07-15 13:07:50 [INFO] All systems nominal.
+2025-07-15 13:07:55 [INFO] All systems nominal.
+2025-07-15 13:08:00 [ERROR][sensors] Obstacle too close: 6.8
+2025-07-15 13:08:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:08:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:08:15 [INFO] All systems nominal.
+2025-07-15 13:08:20 [INFO] All systems nominal.
+2025-07-15 13:08:25 [INFO] All systems nominal.
+2025-07-15 13:08:30 [INFO] All systems nominal.
+2025-07-15 13:08:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:08:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:08:45 [INFO] All systems nominal.
+2025-07-15 13:08:50 [INFO] All systems nominal.
+2025-07-15 13:08:55 [INFO] All systems nominal.
+2025-07-15 13:09:00 [INFO] All systems nominal.
+2025-07-15 13:09:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:09:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:09:15 [INFO] All systems nominal.
+2025-07-15 13:09:20 [INFO] All systems nominal.
+2025-07-15 13:09:25 [INFO] All systems nominal.
+2025-07-15 13:09:30 [INFO] All systems nominal.
+2025-07-15 13:09:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:09:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:09:45 [INFO] All systems nominal.
+2025-07-15 13:09:50 [INFO] All systems nominal.
+2025-07-15 13:09:55 [INFO] All systems nominal.
+2025-07-15 13:10:00 [INFO] All systems nominal.
+2025-07-15 13:10:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:10:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:10:15 [INFO] All systems nominal.
+2025-07-15 13:10:20 [INFO] All systems nominal.
+2025-07-15 13:10:25 [INFO] All systems nominal.
+2025-07-15 13:10:30 [INFO] All systems nominal.
+2025-07-15 13:10:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:10:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:10:45 [INFO] All systems nominal.
+2025-07-15 13:10:50 [ERROR][sensors] Obstacle too close: 5.1
+2025-07-15 13:10:55 [INFO] All systems nominal.
+2025-07-15 13:11:00 [INFO] All systems nominal.
+2025-07-15 13:11:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:11:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:11:15 [INFO] All systems nominal.
+2025-07-15 13:11:20 [ERROR][sensors] Obstacle too close: 7.0
+2025-07-15 13:11:25 [INFO] All systems nominal.
+2025-07-15 13:11:30 [INFO] All systems nominal.
+2025-07-15 13:11:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:11:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:11:45 [ERROR][sensors] Obstacle too close: 6.1
+2025-07-15 13:11:50 [ERROR][sensors] Obstacle too close: 4.3
+2025-07-15 13:11:55 [ERROR][sensors] Obstacle too close: 6.3
+2025-07-15 13:12:00 [INFO] All systems nominal.
+2025-07-15 13:12:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:12:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:12:15 [INFO] All systems nominal.
+2025-07-15 13:12:20 [INFO] All systems nominal.
+2025-07-15 13:12:25 [INFO] All systems nominal.
+2025-07-15 13:12:30 [INFO] All systems nominal.
+2025-07-15 13:12:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:12:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:12:45 [INFO] All systems nominal.
+2025-07-15 13:12:50 [ERROR][sensors] Obstacle too close: 4.0
+2025-07-15 13:12:55 [INFO] All systems nominal.
+2025-07-15 13:13:00 [INFO] All systems nominal.
+2025-07-15 13:13:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:13:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:13:15 [INFO] All systems nominal.
+2025-07-15 13:13:20 [INFO] All systems nominal.
+2025-07-15 13:13:25 [INFO] All systems nominal.
+2025-07-15 13:13:30 [INFO] All systems nominal.
+2025-07-15 13:13:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:13:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:13:45 [INFO] All systems nominal.
+2025-07-15 13:13:50 [INFO] All systems nominal.
+2025-07-15 13:13:55 [INFO] All systems nominal.
+2025-07-15 13:14:00 [INFO] All systems nominal.
+2025-07-15 13:14:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:14:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:14:15 [INFO] All systems nominal.
+2025-07-15 13:14:20 [INFO] All systems nominal.
+2025-07-15 13:14:25 [INFO] All systems nominal.
+2025-07-15 13:14:30 [INFO] All systems nominal.
+2025-07-15 13:14:35 [ERROR][sensors] Obstacle too close: 5.9
+2025-07-15 13:14:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:14:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:14:45 [INFO] All systems nominal.
+2025-07-15 13:14:50 [INFO] All systems nominal.
+2025-07-15 13:14:55 [INFO] All systems nominal.
+2025-07-15 13:15:00 [INFO] All systems nominal.
+2025-07-15 13:15:05 [ERROR][sensors] Obstacle too close: 3.9
+2025-07-15 13:15:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:15:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:15:15 [INFO] All systems nominal.
+2025-07-15 13:15:20 [INFO] All systems nominal.
+2025-07-15 13:15:25 [INFO] All systems nominal.
+2025-07-15 13:15:30 [INFO] All systems nominal.
+2025-07-15 13:15:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:15:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:15:45 [INFO] All systems nominal.
+2025-07-15 13:15:50 [INFO] All systems nominal.
+2025-07-15 13:15:55 [INFO] All systems nominal.
+2025-07-15 13:16:00 [ERROR][sensors] Obstacle too close: 6.4
+2025-07-15 13:16:06 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:16:11 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:16:16 [INFO] All systems nominal.
+2025-07-15 13:16:21 [INFO] All systems nominal.
+2025-07-15 13:16:26 [ERROR][sensors] Obstacle too close: 4.1
+2025-07-15 13:16:31 [INFO] All systems nominal.
+2025-07-15 13:16:36 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:16:41 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:16:46 [INFO] All systems nominal.
+2025-07-15 13:16:51 [INFO] All systems nominal.
+2025-07-15 13:16:56 [INFO] All systems nominal.
+2025-07-15 13:17:01 [INFO] All systems nominal.
+2025-07-15 13:17:06 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:17:11 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:17:16 [INFO] All systems nominal.
+2025-07-15 13:17:21 [INFO] All systems nominal.
+2025-07-15 13:17:26 [INFO] All systems nominal.
+2025-07-15 13:17:31 [INFO] All systems nominal.
+2025-07-15 13:17:36 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:18:31 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:19:14 [INFO] All systems nominal.
+2025-07-15 13:19:19 [INFO] All systems nominal.
+2025-07-15 13:19:24 [INFO] All systems nominal.
+2025-07-15 13:19:29 [INFO] All systems nominal.
+2025-07-15 13:19:34 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:19:39 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:19:44 [ERROR][sensors] Obstacle too close: 4.1
+2025-07-15 13:19:49 [INFO] All systems nominal.
+2025-07-15 13:19:54 [INFO] All systems nominal.
+2025-07-15 13:19:59 [INFO] All systems nominal.
+2025-07-15 13:20:04 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:20:09 [ERROR][sensors] Obstacle too close: 4.9
+2025-07-15 13:20:09 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:20:14 [INFO] All systems nominal.
+2025-07-15 13:20:19 [ERROR][sensors] Obstacle too close: 4.9
+2025-07-15 13:20:24 [INFO] All systems nominal.
+2025-07-15 13:20:29 [INFO] All systems nominal.
+2025-07-15 13:20:34 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:20:39 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:20:44 [INFO] All systems nominal.
+2025-07-15 13:20:49 [INFO] All systems nominal.
+2025-07-15 13:20:54 [INFO] All systems nominal.
+2025-07-15 13:20:59 [INFO] All systems nominal.
+2025-07-15 13:21:04 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:21:09 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:21:14 [INFO] All systems nominal.
+2025-07-15 13:21:19 [INFO] All systems nominal.
+2025-07-15 13:21:24 [INFO] All systems nominal.
+2025-07-15 13:21:29 [INFO] All systems nominal.
+2025-07-15 13:21:34 [ERROR][sensors] Obstacle too close: 3.9
+2025-07-15 13:21:34 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:21:39 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:21:44 [INFO] All systems nominal.
+2025-07-15 13:21:49 [INFO] All systems nominal.
+2025-07-15 13:21:54 [INFO] All systems nominal.
+2025-07-15 13:21:59 [INFO] All systems nominal.
+2025-07-15 13:22:04 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:22:09 [INFO] All systems nominal.
+2025-07-15 13:22:14 [INFO] All systems nominal.
+2025-07-15 13:22:19 [INFO] All systems nominal.
+2025-07-15 13:22:24 [INFO] All systems nominal.
+2025-07-15 13:22:29 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:22:34 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:22:39 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:22:45 [INFO] All systems nominal.
+2025-07-15 13:22:50 [INFO] All systems nominal.
+2025-07-15 13:22:55 [INFO] All systems nominal.
+2025-07-15 13:23:00 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:23:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:23:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:23:15 [INFO] All systems nominal.
+2025-07-15 13:23:20 [INFO] All systems nominal.
+2025-07-15 13:23:25 [INFO] All systems nominal.
+2025-07-15 13:23:30 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:23:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:23:40 [INFO] All systems nominal.
+2025-07-15 13:23:45 [INFO] All systems nominal.
+2025-07-15 13:23:50 [ERROR][sensors] Obstacle too close: 5.8
+2025-07-15 13:23:55 [INFO] All systems nominal.
+2025-07-15 13:24:00 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:24:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:24:10 [INFO] All systems nominal.
+2025-07-15 13:24:15 [INFO] All systems nominal.
+2025-07-15 13:24:20 [INFO] All systems nominal.
+2025-07-15 13:24:25 [INFO] All systems nominal.
+2025-07-15 13:24:30 [ERROR][sensors] Obstacle too close: 4.6
+2025-07-15 13:24:30 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:24:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:24:40 [INFO] All systems nominal.
+2025-07-15 13:24:45 [INFO] All systems nominal.
+2025-07-15 13:24:50 [INFO] All systems nominal.
+2025-07-15 13:24:55 [INFO] All systems nominal.
+2025-07-15 13:25:00 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:25:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:25:10 [INFO] All systems nominal.
+2025-07-15 13:25:15 [INFO] All systems nominal.
+2025-07-15 13:25:20 [INFO] All systems nominal.
+2025-07-15 13:25:25 [INFO] All systems nominal.
+2025-07-15 13:25:30 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:25:35 [ERROR][sensors] Obstacle too close: 3.7
+2025-07-15 13:25:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:25:40 [INFO] All systems nominal.
+2025-07-15 13:25:45 [INFO] All systems nominal.
+2025-07-15 13:25:50 [INFO] All systems nominal.
+2025-07-15 13:25:55 [INFO] All systems nominal.
+2025-07-15 13:26:00 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:26:05 [ERROR][sensors] Obstacle too close: 4.3
+2025-07-15 13:26:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:26:10 [INFO] All systems nominal.
+2025-07-15 13:26:15 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:26:20 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:26:25 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:26:30 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:26:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:26:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:26:45 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:26:50 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:26:55 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:27:00 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:27:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:27:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:27:15 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:27:20 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:27:25 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:27:30 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:27:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:27:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:27:45 [ERROR][sensors] Obstacle too close: 6.4
+2025-07-15 13:27:45 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:27:50 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:27:55 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:28:00 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:28:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:28:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:28:15 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:28:20 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:28:25 [ERROR][sensors] Obstacle too close: 4.4
+2025-07-15 13:28:25 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:28:30 [ERROR][sensors] Obstacle too close: 5.2
+2025-07-15 13:28:30 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:28:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:28:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:28:45 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:28:50 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:28:55 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:29:00 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:29:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:29:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:29:15 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:29:20 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:29:25 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:29:30 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:29:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:29:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:29:45 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:29:50 [ERROR][sensors] Obstacle too close: 4.7
+2025-07-15 13:29:50 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:29:55 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:30:00 [ERROR][sensors] Obstacle too close: 3.3
+2025-07-15 13:30:00 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:30:05 [ERROR][sensors] Obstacle too close: 4.0
+2025-07-15 13:30:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:30:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:30:15 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:30:20 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:30:25 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:30:30 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:30:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:30:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:30:45 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:30:50 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:30:55 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:31:00 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:31:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:31:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:31:15 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:31:20 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:31:25 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:31:30 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:31:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:31:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:31:45 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:31:50 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:31:55 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:32:00 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:32:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:32:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:32:15 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:32:20 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:32:25 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:32:30 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:32:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:32:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:32:45 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:32:50 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:32:55 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:33:00 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:33:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:33:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:33:15 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:33:20 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:33:25 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:33:30 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:33:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:33:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:33:45 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:33:50 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:33:55 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:34:00 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:34:05 [ERROR][sensors] Obstacle too close: 4.5
+2025-07-15 13:34:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:34:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:34:15 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:34:20 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:34:25 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:34:30 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:34:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:34:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:34:45 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:34:50 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:34:55 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:35:00 [ERROR][sensors] Obstacle too close: 4.3
+2025-07-15 13:35:00 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:35:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:35:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:35:15 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:35:20 [ERROR][sensors] Obstacle too close: 4.2
+2025-07-15 13:35:20 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:35:25 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:35:30 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:35:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:35:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:35:45 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:35:50 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:35:55 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:36:00 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:36:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:36:10 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:36:15 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:36:20 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:36:25 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:36:30 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:36:35 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:36:40 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:36:45 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:36:50 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:36:55 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:37:00 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:37:05 [ERROR][fsm] FSM in ERROR state
+2025-07-15 13:37:10 [ERROR][fsm] FSM in ERROR state

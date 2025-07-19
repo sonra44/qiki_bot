@@ -1,0 +1,43 @@
+{
+  "mission_id": "patrol_alpha_1",
+  "description": "A simple patrol route with a battery check.",
+  "steps": [
+    {
+      "step_id": "01_ACTIVATE",
+      "action": "Ensure bot is active",
+      "trigger": "start_move",
+      "wait_seconds": 2
+    },
+    {
+      "step_id": "02_MOVE_FORWARD_1",
+      "action": "Move forward for 5 seconds",
+      "trigger": "start_move",
+      "wait_seconds": 5
+    },
+    {
+      "step_id": "03_STOP_AND_SCAN",
+      "action": "Stop and wait",
+      "trigger": "stop",
+      "wait_seconds": 3
+    },
+    {
+      "step_id": "04_MOVE_FORWARD_2",
+      "action": "Move forward for another 5 seconds",
+      "trigger": "start_move",
+      "wait_seconds": 5
+    },
+    {
+      "step_id": "05_BATTERY_CHECK",
+      "action": "Force charge if battery is low",
+      "condition": "telemetry.battery_percent < 90",
+      "trigger": "charge",
+      "wait_seconds": 2
+    },
+    {
+      "step_id": "06_MISSION_COMPLETE",
+      "action": "Go to idle state",
+      "trigger": "stop",
+      "break": true
+    }
+  ]
+}

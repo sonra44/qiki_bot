@@ -1,0 +1,38 @@
+[
+  {
+    "name": "LowBatteryCharge",
+    "condition": "telemetry.battery_percent < 20",
+    "action": "charge",
+    "priority": 10
+  },
+  {
+    "name": "BatteryCharged",
+    "condition": "telemetry.battery_percent > 95 and fsm.state == 'charging'",
+    "action": "stop_charge",
+    "priority": 20
+  },
+  {
+    "name": "StartMoving",
+    "condition": "fsm.state == 'idle' and telemetry.battery_percent > 30",
+    "action": "start_move",
+    "priority": 30
+  },
+  {
+    "name": "StuckDetection",
+    "condition": "fsm.state == 'moving' and telemetry.velocity == 0",
+    "action": "error",
+    "priority": 5
+  },
+  {
+    "name": "HighTemperature",
+    "condition": "sensors.thermal.core_temp.cpu > 85",
+    "action": "error",
+    "priority": 1
+  },
+  {
+    "name": "RecoverFromError",
+    "condition": "fsm.state == 'error' and telemetry.battery_percent > 10",
+    "action": "reset",
+    "priority": 0
+  }
+]
