@@ -47,6 +47,7 @@ QIKI Bot is a minimal multi-agent system built with pure Python and JSON. Commun
 - `telemetry.json.lock` — lock for telemetry.json
 - `tests/` — unit tests
 - `tools/` — helper utilities
+- `utils/` — common helpers (logging, JSON I/O)
 - `voice_logger.py` — speech log generator
 ## Quick start
 1. Install dependencies:
