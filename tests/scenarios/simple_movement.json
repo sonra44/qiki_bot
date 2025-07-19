@@ -1,0 +1,28 @@
+[
+  {
+    "input": "status",
+    "expect": {},
+    "wait": 0.5
+  },
+  {
+    "input": "move 10 20",
+    "expect": {
+      "fsm_requests.command": "MOVE_TO",
+      "fsm_requests.payload": {"x": 10, "y": 20}
+    },
+    "wait": 1
+  },
+  {
+    "input": "rotate 90",
+    "expect": {
+      "fsm_requests.command": "ROTATE_TO",
+      "fsm_requests.payload": {"angle": 90}
+    },
+    "wait": 1
+  },
+    {
+    "input": "move abc",
+    "expect": {},
+    "wait": 0.5
+  }
+]
