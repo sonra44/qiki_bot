@@ -1,14 +1,12 @@
 import os
-import json
 import time
 import datetime
 from core.fsm_client import FSMClient
+from core.file_paths import TELEMETRY_FILE, SENSORS_FILE, SHARED_BUS_FILE
+from utils.json_io import safe_load
+from utils.logger import get_logger
 
 # --- CONFIGURATION ---
-# File paths
-TELEMETRY_FILE = "telemetry.json"
-SENSORS_FILE = "sensors.json"
-SHARED_BUS_FILE = "shared_bus.json"
 
 # Static specifications (as real config files may not be available)
 SPEC_MASS_KG = 35.0
@@ -24,29 +22,24 @@ COLOR_GREEN = "\033[92m"
 COLOR_BLUE = "\033[94m"
 COLOR_RESET = "\033[0m"
 
+logger = get_logger("status_hud")
+
 # --- HELPER FUNCTIONS ---
 
 def clear_screen():
     """Clears the terminal screen."""
     os.system('cls' if os.name == 'nt' else 'clear')
 
-def read_data(filepath: str) -> (dict, float, str):
-    """
-    Safely reads a JSON file.
-    Returns: (data_dict, last_modified_timestamp, error_string)
-    """
+def read_data(filepath: str) -> tuple[dict, float, str]:
+    """Load JSON file using :func:`safe_load` with timestamp."""
     if not os.path.exists(filepath):
         return {}, 0, f"⚠️  {os.path.basename(filepath)} not found"
-    try:
-        last_mod_time = os.path.getmtime(filepath)
-        with open(filepath, 'r') as f:
-            content = f.read()
-            if not content.strip():
-                return {}, last_mod_time, f"⚠️  {os.path.basename(filepath)} is empty"
-            data = json.loads(content)
-            return data, last_mod_time, ""
-    except (json.JSONDecodeError, IOError) as e:
-        return {}, 0, f"⚠️  Error reading {os.path.basename(filepath)}"
+
+    last_mod_time = os.path.getmtime(filepath)
+    data = safe_load(filepath)
+    if not data:
+        return {}, last_mod_time, f"⚠️  {os.path.basename(filepath)} empty or invalid"
+    return data, last_mod_time, ""
 
 def make_bar(value: float, max_value: float, length: int = 14) -> str:
     """Creates an ASCII progress bar."""
@@ -86,9 +79,8 @@ def display_cockpit_hud():
     rssi = sensors.get("communication", {}).get("signal_strength_meters", {}).get("rssi", -100)
 
     # FSM
-        fsm_state = fsm.get("mode", "UNKNOWN")
-    fsm_trigger = fsm_data.get("last_event", "N/A")
-    agent_state = next(iter(shared_bus.values()), {}).get("state", "N/A") if shared_bus else "N/A"
+    fsm_state = fsm.get("mode", "UNKNOWN")
+    fsm_trigger = fsm.get("last_event", "N/A")
 
     # Time
     local_time_str = datetime.datetime.now().strftime("%H:%M:%S")
@@ -144,7 +136,7 @@ def display_cockpit_hud():
     hud.append(f"│{time_line1}│{err_line1}│")
 
     time_line2 = f"  Last Telemetry Update / Обновление: {last_update_str}".ljust(38)
-    err_line2 = f"  {fsm_err or bus_err or '- OK -'}".ljust(39)
+    err_line2 = f"  {bus_err or '- OK -'}".ljust(39)
     hud.append(f"│{time_line2}│{err_line2}│")
 
     hud.append("└" + "─" * 76 + "┘")
@@ -163,6 +155,6 @@ if __name__ == "__main__":
             time.sleep(1) # Can be faster now
     except KeyboardInterrupt:
         clear_screen()
-        print("Cockpit HUD terminated by user.")
+        logger.info("Cockpit HUD terminated by user.")
     finally:
         json_cache.stop_cache_watcher()
