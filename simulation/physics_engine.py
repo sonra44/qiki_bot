@@ -2,7 +2,6 @@ import os
 import json
 import time
 import random
-import yaml
 
 # Add project root to sys.path for imports
 import sys
@@ -16,7 +15,7 @@ from core.file_paths import TELEMETRY_FILE, FSM_STATE_FILE
 
 class PhysicsEngine:
     def __init__(self):
-        # Load physical parameters from bot_specs.yaml
+        # Load physical parameters from bot_specs.json
         self._load_specs()
 
         # Dynamic state variables (initialized from telemetry or defaults)
@@ -31,10 +30,10 @@ class PhysicsEngine:
         print("PhysicsEngine initialized with specs:", self.specs)
 
     def _load_specs(self):
-        specs_path = os.path.join(project_root, 'config', 'bot_specs.yaml')
+        specs_path = os.path.join(project_root, 'config', 'bot_specs.json')
         try:
             with open(specs_path, 'r') as f:
-                self.specs = yaml.safe_load(f)
+                self.specs = json.load(f)
                 bot_physical = self.specs.get('bot', {}).get('physical', {})
                 bot_power = bot_physical.get('power', {})
                 
@@ -45,8 +44,8 @@ class PhysicsEngine:
                 self.consumption_w_idle = bot_power.get('consumption_w_idle', 5.0)
                 self.consumption_w_max = bot_power.get('consumption_w_max', 120.0)
 
-        except (FileNotFoundError, yaml.YAMLError) as e:
-            print(f"[ERROR] Could not load or parse bot_specs.yaml: {e}. Using default values.")
+        except (FileNotFoundError, json.JSONDecodeError) as e:
+            print(f"[ERROR] Could not load or parse bot_specs.json: {e}. Using default values.")
             self.specs = {}
             self.mass_kg = 35.0
             self.max_speed_mps = 1.2
