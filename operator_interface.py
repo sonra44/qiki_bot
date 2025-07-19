@@ -17,6 +17,7 @@ from core.localization_manager import LocalizationManager
 
 # --- Constants ---
 CLI_INPUT_LOG_FILE = os.path.join(project_root, 'logs', 'cli_input.log')
+CRASH_LOG_FILE = os.path.join(project_root, 'logs', 'crash.log')
 
 # --- Localization Manager ---
 loc = LocalizationManager()
@@ -133,6 +134,18 @@ def handle_agents(args):
             status_text = loc.get_dual("UNKNOWN (No Heartbeat Data)", "НЕИЗВЕСТНО (Нет данных Heartbeat)")
         
         log_info(f"  {status_emoji} {agent_id} -> {status_text} (last seen: {last_seen_str})")
+
+def handle_fsm_info(args):
+    fsm_state = FSMClient().get_state()
+    log_info(loc.get_dual("FSM Details:", "Детали FSM:"))
+    for key, value in fsm_state.items():
+        log_info(f"  {key}: {value}")
+
+def handle_mission_status(args):
+    mission_state = read_json_file(MISSION_STATUS_FILE)
+    log_info(loc.get_dual("Mission Status:", "Статус миссии:"))
+    for key, value in mission_state.items():
+        log_info(f"  {key}: {value}")
 
 def handle_diagnostics(args):
     health_report = read_json_file(os.path.join(project_root, 'logs', 'health_report.log'))
@@ -332,6 +345,8 @@ def handle_help(args):
     log_info(loc.get_dual("  status - show current system status", "  status - показать текущее состояние системы"))
     log_info(loc.get_dual("  agents - list all agents and their heartbeat status", "  agents - вывести список всех агентов и их статус heartbeat"))
     log_info(loc.get_dual("  diagnostics - run system diagnostics and consistency checks", "  diagnostics - запустить системную диагностику и проверку согласованности"))
+    log_info(loc.get_dual("  fsm_info - show raw FSM state", "  fsm_info - показать данные FSM"))
+    log_info(loc.get_dual("  mission_status - show mission status", "  mission_status - статус миссии"))
     log_info(loc.get_dual("  move x y - move to coordinates", "  move x y - переместиться в координаты"))
     log_info(loc.get_dual("  rotate angle - rotate by angle", "  rotate angle - повернуться на угол"))
     log_info(loc.get_dual("  clear - clear screen", "  clear - очистить экран"))
@@ -341,6 +356,8 @@ COMMAND_HANDLERS = {
     'status': handle_status,
     'agents': handle_agents,
     'diagnostics': handle_diagnostics,
+    'fsm_info': handle_fsm_info,
+    'mission_status': handle_mission_status,
     'move': handle_move,
     'rotate': handle_rotate,
     'help': handle_help,
@@ -352,6 +369,7 @@ def run_command(command_line: str):
     parts = shlex.split(command_line)
     command = parts[0].lower()
     args = parts[1:]
+    _log_to_file(command_line, "CMD")
 
     if command == 'clear':
         os.system('cls' if os.name == 'nt' else 'clear')
@@ -380,6 +398,9 @@ def main(test_mode=False):
                 log_ok(loc.get_dual("Exiting CLI.", "Завершение работы CLI."))
                 break
             except Exception as e:
+                import traceback
+                with open(CRASH_LOG_FILE, "a") as f:
+                    f.write(traceback.format_exc())
                 log_error(loc.get_dual(f"An error occurred: {e}", f"Произошла ошибка: {e}"))
     else:
         # Test commands for programmatic execution

@@ -10,11 +10,11 @@ import fcntl
 import logging
 import time
 from typing import Dict, Any, Optional
+from core.fsm_logger import log_transition
 
 # --- Constants ---
 FSM_STATE_FILE = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'fsm_state.json'))
 LOG_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'logs'))
-FSM_LOGGER_FILE = os.path.join(LOG_DIR, 'fsm_logger.log')
 FSM_ERROR_LOG_FILE = os.path.join(LOG_DIR, 'fsm_errors.log')
 
 # --- FSM Schema ---
@@ -45,7 +45,6 @@ def setup_logger(name, log_file, level=logging.INFO):
     
     return logger
 
-fsm_logger = setup_logger('fsm_logger', FSM_LOGGER_FILE)
 fsm_error_logger = setup_logger('fsm_error_logger', FSM_ERROR_LOG_FILE)
 
 
@@ -156,7 +155,7 @@ class FSMClient:
                 fcntl.flock(f, fcntl.LOCK_UN)
             
             # 5. Log the successful transition
-            fsm_logger.info(f"State changed by '{source}' (trigger: {trigger}). Transition: [{from_state_summary}] -> [{to_state_summary}]")
+            log_transition(current_state, state_obj, trigger, source)
             return True
         except IOError as e:
             fsm_error_logger.error(f"Failed to write state to {FSM_STATE_FILE}, requested by '{source}': {e}")
