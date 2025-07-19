@@ -237,7 +237,8 @@ if __name__ == "__main__":
     
     if not os.path.exists(FSM_STATE_FILE):
         fsm = FSMClient()
-        fsm.set_state({"state": "idle", "mode": "idle", "task": "none", "status": "ok", "last_event": "init", "timestamp": time.time(), "source": "rule_engine"})
+        meta = {"trigger": "init", "context": {}, "source": "rule_engine"}
+        fsm.set_state("IDLE", meta)
 
     engine = RuleEngine()
     
