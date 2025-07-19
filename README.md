@@ -1,296 +1,257 @@
-# ✅ **Полный отчет по этапам разработки и тестирования мультиагентной системы QIKI Bot**
+# QIKI Bot
+
+QIKI Bot is a minimal multi-agent system built with pure Python and JSON. All communication between modules uses local JSON files which makes it easy to run in restricted or offline environments.
+
+## Contents
+- `core/` – state machine, rule engine and shared bus management
+- `sensors/` – sensor clusters and bus simulator
+- `interfaces/cli/` – command line dashboards
+- `tools/` – utilities such as the agent initializer
+- `simulation/` – simple physics engine used for demos
+
+## Quick start
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. Launch all background services:
+   ```bash
+   bash run_all.sh
+   ```
+3. Optional: start the 3D terminal dashboard from the `qiki_world` module with `bash run_world.sh`.
+
+## Running tests
+Execute all unit tests with:
+```bash
+pytest -q
+```
+
+## Русская версия
+
+QIKI Bot — система из нескольких агентов на чистом Python без сторонних библиотек. Обмен данными осуществляется через JSON‑файлы (`fsm_state.json`, `telemetry.json`, `sensors.json`, `shared_bus.json`). Проект работает в терминальных средах, включая Termux.
+
+### Быстрый запуск
+1. Установите зависимости: `pip install -r requirements.txt`.
+2. Запустите все процессы: `bash run_all.sh`.
+
+### Тесты
+Для запуска тестов выполните `pytest -q`.
+
+
+## File overview
+
+### Root scripts
+- `assistant.py` - CLI interface for sending commands and interacting with agents
+- `event_trigger.py` - simple helper to post events to the FSM
+- `navigation_monitor.py` - logs navigation related telemetry
+- `operator_interface.py` - text interface with commands like `status` and `agents`
+- `power_core.py` - simulates basic power management cycle
+- `sensor_manager_demo.py` - demo runner for the sensor subsystem
+- `sensor_overlay.py` - tiny terminal overlay with live sensor data
+- `state_monitor.py` - prints FSM state changes to console
+- `status_hud.py` - curses-based heads-up display for key metrics
+- `system_diagnostics.py` - quick diagnostics of JSON files and health
+- `voice_logger.py` - records spoken messages to `logs/` with timestamps
+
+### JSON data
+- `fsm_state.json` - finite state machine state
+- `telemetry.json` - latest telemetry data
+- `mission_state.json` - mission progress tracker
+- `mission_status.json` - active mission status
+- `shared_bus.json` - inter-agent communication hub
+- `task_state.json` - tasks assigned to agents
+- `sensors.json` - aggregated sensor readings
+- `qiki_boot_log.json` - boot timestamp log
+
+### Shell scripts
+- `run_all.sh` - launches all background modules
+- `start.sh` - helper for Termux installation
+
+### Config files
+- `config/bot_specs.json` - hardware capabilities
+- `config/locales.json` - localization strings
+- `config/mission.json` - predefined missions
+- `config/rules.json` - rule engine definitions
+
+### Core modules (`core/`)
+- `agent_comm.py` - basic agent messaging API
+- `agent_comm_link.py` - simulates a comm link between agents
+- `agent_ping.py` - heartbeat updater for agents
+- `agent_profile.py` - metadata for each agent
+- `auto_controller.py` - automatic event generator
+- `file_paths.py` - constants for all data file paths
+- `fsm_client.py` - safe read/write access to FSM JSON
+- `fsm_core.py` - in-memory finite state machine
+- `fsm_gatekeeper.py` - centralized FSM logging
+- `fsm_interface.py` - high level FSM API
+- `fsm_io.py` - queue and lock management for FSM
+- `fsm_logger.py` - writes detailed FSM logs
+- `localization_manager.py` - bilingual text helper
+- `mission_executor.py` - executes missions from config
+- `rule_engine.py` - evaluates triggers and rules
+- `sensor_preprocessor.py` - filters raw sensor data
+- `shared_bus_manager.py` - maintains shared_bus.json
+- `shared_json_cache.py` - RAM cache for frequently read JSON
+- `system_health_monitor.py` - checks agent heartbeats and file freshness
+- `telemetry.py` - telemetry recorder and access layer
+
+### CLI interface (`interfaces/cli/`)
+- `agent_control_panel.py` - interactive control interface
+- `agent_monitor.py` - watch list of agents from shared bus
+- `cli_dashboard.py` - curses dashboard of FSM and telemetry
+- `system_dashboard.py` - summary view of system health
+
+### Sensors subsystem (`sensors/`)
+- `sensor_bus.py` - orchestrates sensor cluster updates
+- `clusters/base_cluster.py` - common base for clusters
+- `clusters/communication.py` - communications status sensors
+- `clusters/environment.py` - environment readings
+- `clusters/ew.py` - electronic warfare metrics
+- `clusters/navigation.py` - attitude and position sensors
+- `clusters/power.py` - power supply monitors
+- `clusters/proximity.py` - proximity and collision detection
+- `clusters/rlsm.py` - radar/lidar sensor model
+- `clusters/structural.py` - structural integrity sensors
+- `clusters/system_health.py` - system temperature and faults
+- `clusters/thermal.py` - thermal management sensors
+- `clusters/thrusters.py` - thruster status readings
+
+### Machine learning (`ml/`)
+- `ml_predict.py` - tiny example prediction helper
+- `micrograd/` - bundled copy of the Micrograd library
+
+### Simulation
+- `simulation/physics_engine.py` - simple physics simulation for demos
+
+### Prompts
+- files in `prompts/` contain design notes and development plans
+
+### Tools
+- `agent_initializer.py` - sets up initial JSON files
+- `consistency_checker.py` - validates cross-module data
+- `fsm_debugger.py` - helper to inspect FSM state
+- `json_cache_debugger.py` - view contents of shared_json_cache
+- `monitor.py` - script to follow log files
+- `rule_engine_demo.py` - showcase of the rule engine
+- `system_health_monitor.py` - CLI monitor of agent heartbeats
+- `system_monitor.py` - continuous system metrics display
+- `watchdog_monitor.py` - restarts modules if they hang
+
+### Tests
+- `tests/test_fsm_core.py` - unit tests for the FSM logic
+- `tests/test_fsm.py` - integration tests of core FSM operations
+- `tests/test_sensor_preprocessor.py` - checks sensor preprocessing
+- `tests/test_telemetry_cycle.py` - verifies telemetry read/write loop
+- `tests/cli_scenario_tester.py` - scenario runner for CLI modules
+- `tests/scenarios/simple_movement.json` - sample mission scenario
+
+
+## Обзор файлов
+
+Те же сведения представлены ниже по‑русски.
+
+### Скрипты в корне
+- `assistant.py` – интерфейс командной строки для отправки команд агентам
+- `event_trigger.py` – утилита для публикации событий в FSM
+- `navigation_monitor.py` – логирование навигационных данных
+- `operator_interface.py` – текстовый интерфейс с командами `status` и `agents`
+- `power_core.py` – простая логика управления питанием
+- `sensor_manager_demo.py` – демонстрация сенсорной подсистемы
+- `sensor_overlay.py` – маленькое наложение сенсоров в терминале
+- `state_monitor.py` – вывод изменений состояния FSM
+- `status_hud.py` – curses‑HUD с ключевой информацией
+- `system_diagnostics.py` – быстрая проверка JSON‑файлов
+- `voice_logger.py` – записывает голосовые сообщения в папку `logs/`
+
+### JSON‑данные
+- `fsm_state.json` – текущее состояние FSM
+- `telemetry.json` – последняя телеметрия
+- `mission_state.json` – прогресс выполнения миссий
+- `mission_status.json` – статус текущей миссии
+- `shared_bus.json` – шина обмена агентами
+- `task_state.json` – задачи для агентов
+- `sensors.json` – агрегированные показания сенсоров
+- `qiki_boot_log.json` – журнал запусков
+
+### Скрипты оболочки
+- `run_all.sh` – запускает все фоновые модули
+- `start.sh` – помощник для Termux
+
+### Конфигурация
+- `config/bot_specs.json` – характеристики оборудования
+- `config/locales.json` – строки локализации
+- `config/mission.json` – предопределенные миссии
+- `config/rules.json` – правила для движка
+
+### Модули ядра (`core/`)
+- `agent_comm.py` – API обмена сообщениями между агентами
+- `agent_comm_link.py` – симулятор канала связи
+- `agent_ping.py` – обновление heartbeat агентов
+- `agent_profile.py` – метаданные агента
+- `auto_controller.py` – генератор автоматических событий
+- `file_paths.py` – константы путей к файлам
+- `fsm_client.py` – безопасный доступ к FSM-файлам
+- `fsm_core.py` – реализация конечного автомата
+- `fsm_gatekeeper.py` – централизованный логгер FSM
+- `fsm_interface.py` – высокоуровневый API FSM
+- `fsm_io.py` – очереди и блокировки FSM
+- `fsm_logger.py` – детальное логирование FSM
+- `localization_manager.py` – двуязычные сообщения
+- `mission_executor.py` – выполнение миссий
+- `rule_engine.py` – обработка правил и триггеров
+- `sensor_preprocessor.py` – фильтрация сырых сенсорных данных
+- `shared_bus_manager.py` – управление файлом shared_bus
+- `shared_json_cache.py` – кэш JSON‑файлов в памяти
+- `system_health_monitor.py` – контроль heartbeat и свежести файлов
+- `telemetry.py` – запись и доступ к телеметрии
+
+### CLI-интерфейсы (`interfaces/cli/`)
+- `agent_control_panel.py` – интерактивное управление
+- `agent_monitor.py` – список агентов из шины
+- `cli_dashboard.py` – curses-панель FSM и телеметрии
+- `system_dashboard.py` – сводная панель состояния
+
+### Сенсоры (`sensors/`)
+- `sensor_bus.py` – координирует обновление кластеров
+- `clusters/base_cluster.py` – базовый класс кластера
+- `clusters/communication.py` – сенсоры связи
+- `clusters/environment.py` – сенсоры окружающей среды
+- `clusters/ew.py` – электронная борьба
+- `clusters/navigation.py` – сенсоры ориентации и положения
+- `clusters/power.py` – мониторинг питания
+- `clusters/proximity.py` – обнаружение препятствий
+- `clusters/rlsm.py` – модель радара/лидара
+- `clusters/structural.py` – целостность конструкции
+- `clusters/system_health.py` – температура и сбои
+- `clusters/thermal.py` – управление температурой
+- `clusters/thrusters.py` – состояние движителей
+
+### Машинное обучение (`ml/`)
+- `ml_predict.py` – пример предсказаний
+- `micrograd/` – встроенная библиотека Micrograd
+
+### Симуляция
+- `simulation/physics_engine.py` – простая физическая модель
+
+### Подсказки
+- файлы в `prompts/` содержат заметки и планы разработки
+
+### Инструменты
+- `agent_initializer.py` – создает начальные JSON
+- `consistency_checker.py` – проверяет согласованность данных
+- `fsm_debugger.py` – инспекция FSM
+- `json_cache_debugger.py` – просмотр кэша JSON
+- `monitor.py` – следит за логами
+- `rule_engine_demo.py` – демонстрация движка правил
+- `system_health_monitor.py` – монитор heartbeat через CLI
+- `system_monitor.py` – непрерывный вывод метрик
+- `watchdog_monitor.py` – перезапуск модулей при зависании
+
+### Тесты
+- `tests/test_fsm_core.py` – модульные тесты FSM
+- `tests/test_fsm.py` – интеграционные тесты FSM
+- `tests/test_sensor_preprocessor.py` – тесты предобработки сенсоров
+- `tests/test_telemetry_cycle.py` – цикл записи/чтения телеметрии
+- `tests/cli_scenario_tester.py` – прогон сценариев CLI
+- `tests/scenarios/simple_movement.json` – пример сценария миссии
 
-###  Дата финализации: **10 июля 2025**
-
----
-
-##  Обзор
-
-**QIKI Bot** — это мультиагентная система, построенная на архитектуре **"Чистый Python + JSON"**, без сторонних зависимостей. Все компоненты взаимодействуют через локальные JSON-файлы, что обеспечивает **полную автономность, устойчивость и переносимость**, включая работу в терминальных средах и условиях ограниченного окружения (например, Termux или bare-metal CLI).
-
-Проект также включает в себя независимый модуль **qiki_world** для 3D-визуализации состояния бота в терминале.
-
----
-
-## ⚙️ Архитектура: "Чистый Python + JSON"
-
-* ✅ Полный отказ от Flask, requests и других внешних библиотек
-* ✅ Файловая шина обмена данными: `fsm_state.json`, `telemetry.json`, `sensors.json`, `shared_bus.json`
-* ✅ **Изолированное ядро FSM**: Логика конечного автомата (`core/fsm_core.py`) полностью отделена от файлового ввода-вывода. Взаимодействие с файловой системой (`fsm_state.json`) инкапсулировано в `core/fsm_interface.py`, а все операции чтения/записи осуществляются исключительно через `core/fsm_client.py`, что обеспечивает высокую тестируемость, модульность и предотвращает гонки состояний.
-* ✅ **Централизованный I/O**: Взаимодействие с `fsm_state.json` осуществляется через `core/fsm_interface.py`, а запросы на изменение состояния отправляются через `core/fsm_io.py`.
-* ✅ **Безопасное чтение**: Модули-мониторы используют `core/fsm_client.py` для безопасного чтения состояния FSM без возможности его изменения.
-* ✅ Состояние FSM, миссии, телеметрия, сенсоры и агентные команды — все в JSON, без сетевого взаимодействия
-* ✅ Поддержка CLI-интерфейсов, терминального мониторинга, псевдографики
-
----
-
-##  Этапы проекта
-
----
-
-### ✅ Этап 1: **Сборка базовых компонентов**
-
-* Переписаны ключевые модули:
-
-  * `fsm.py` (собственная FSM)
-  * `telemetry.py` (TelemetryManager)
-  * `sensors.py` + `sensor_bus.py` (SensorManager + симулятор)
-  * `auto_controller.py` + `rule_engine.py`
-  * `cli_dashboard.py` (псевдографический интерфейс)
-* Создан `run_all.sh` — централизованный скрипт запуска
-* Проверена синхронизация данных, запуск в фоне, автогенерация файлов
-
- Завершено успешно
-
----
-
-### ✅ Этап 2: **Логика правил и автоконтроля**
-
-* Созданы:
-
-  * `rules.json` — набор условий и событий
-  * `rule_engine.py` — логика применения правил
-  * `auto_controller.py` — FSM-реакция на телеметрию и сенсоры
-* Проверена связка FSM ↔️ правило ↔️ сенсор
-* FSM корректно реагирует на события (`battery_low`, `obstacle_detected`, etc.)
-
- Завершено успешно
-
----
-
-### ✅ Этап 3: **Агентная логика и шина связи**
-
-* Внедрен `agent_profile.py` + `shared_bus_manager.py`
-* Формат `shared_bus.json` стандартизирован (по agent\_id)
-* Добавлен `agent_comm_link.py` — симуляция связи между агентами
-* Подключен `assistant.py` для CLI-команд и взаимодействия
-
- Завершено успешно
-
----
-
-### ✅ Этап 4: **Миссии и миссионное управление**
-
-* Реализован `mission_executor.py`
-* Поддержка `mission.json` — список задач с условиями активации
-* FSM реагирует на события из миссий (BATTERY\_CHECK, MOVE, CHARGE)
-* Взаимодействует с авто-контроллером: нет конфликтов
-
- Завершено успешно
-
----
-
-### ✅ Этап 5: **Task Planning / Strategic Thinking**
-
-* FSM реагирует на события из миссий и авто-контроля
-* Внедрен `fsm_gatekeeper` для централизованного логирования FSM-событий
-* Все события FSM регистрируются, проверяются и обрабатываются
-* Система проходит миссии без ошибок, блокировок и гонок
-
- Завершено успешно
-
----
-
-### ✅ Этап 6: **Холодный запуск (Cold Start Test)**
-
-* ❄️ Финальный тест системы через `run_all.sh`, **без ручного вмешательства**
-* Открыты 3 терминала для мониторинга (`fsm_state.json`, `telemetry.json`, `sensors.json`)
-* Все файлы созданы, наполняются, обновляются
-* Логи чистые (без tracebacks, гонок, ошибок доступа)
-* Система работала в фоне > 2 минут, корректно отрабатывая все FSM-события
-
- Завершено успешно
-
----
-
-##  Особые проблемы, решенные в процессе
-
-*  **Состояние гонки при записи в `fsm_state.json`**:
-
-  * Использована `fcntl`-блокировка, глобальный контроль доступа
-  * Удалены все сторонние обращения к файлу в обход FSM-контроллера
-  * `run_all.sh` гарантирует, что `agent_initializer.py` отрабатывает синхронно
-
-* ⚠️ **Повреждение файлов при инициализации**:
-
-  * Все JSON-файлы инициализируются атомарно
-  * Добавлены проверки пустого содержимого
-  * Компоненты запускаются строго по очереди
-
----
-
-##  Финальное состояние системы
-
-* ✅ **Мультиагентная архитектура активна**
-* ✅ **Автономность и переносимость гарантированы**
-* ✅ **Все JSON-файлы обновляются и валидны**
-* ✅ **FSM стабилен, нет гонок и конфликтов**
-* ✅ **CLI-интерфейсы работают, данные отображаются корректно**
-* ✅ **Миссии выполняются**
-* ✅ **Сеть агентов функционирует (shared\_bus)**
-
----
-
-### ✅ Новая возможность: CLI-улучшения (команды: `status`, `agents`, `diagnostics`)
-
-**Статус:** **Реализовано**
-
-- **Модуль:** `operator_interface.py`
-- **Назначение:** Добавлены ключевые команды в терминальный интерфейс для удобного мониторинга и диагностики системы.
-- **Функционал:**
-    - **`status`**: Отображает общее состояние FSM, последнюю миссию, последнюю активность и наличие ошибок/предупреждений из логов.
-    - **`agents`**: Выводит список всех агентов из `shared_bus.json`, их `last_heartbeat` (в человекочитаемом виде) и статус (`ALIVE`, `STALE`, `DEAD`).
-    - **`diagnostics`**: Показывает целостность ключевых файлов, результат проверки `system_health_monitor` и сверяет согласованность FSM ↔ сенсоры ↔ миссии.
-- **Поддержка**: Все новые команды используют `localization_manager.py` для двуязычного вывода и логируют результат в `logs/cli_input.log`. Реализован fallback для случаев отсутствия файлов.
-
----
-
-### ✅ Новая возможность: Heartbeat / TTL для агентов
-
-**Статус:** **Реализовано**
-
-- **Модули:** `core/agent_ping.py`, `tools/system_health_monitor.py`
-- **Назначение:** Внедрен механизм отслеживания активности (heartbeat) для всех агентов. Каждый агент теперь регулярно обновляет метку `last_heartbeat` в `shared_bus.json`.
-- **Мониторинг:** Модуль `system_health_monitor.py` отслеживает эти метки:
-    - Агенты считаются `STALE` (устаревшими), если `last_heartbeat` старше 3 секунд.
-    - Агенты считаются `DEAD` (неактивными), если `last_heartbeat` старше 10 секунд.
-- **Логирование:** Статус каждого агента (OK, STALE, DEAD) записывается в `logs/agent_health.log` для удобного мониторинга.
-
----
-
-### ✅ Новая возможность: Мониторинг состояния системы (`system_health_monitor.py`)
-
-**Статус:** **Реализовано**
-
-- **Модуль:** `tools/system_health_monitor.py`
-- **Назначение:** Централизованный мониторинг состояния ключевых компонентов системы, включая агентов, сенсоры, FSM, миссии и критические файлы.
-- **Функционал:**
-    - Проверяет время последнего изменения файлов: `fsm_state.json`, `telemetry.json`, `mission_state.json`, `shared_bus.json`, `qiki_boot_log.json`.
-    - Оценивает статус файлов: `OK` (< 3 сек), `STALE` (> 3 сек), `DEAD` (> 10 сек), `MISSING` (файл не найден).
-    - Проверяет `last_heartbeat` каждого агента в `shared_bus.json` и выводит статус: `OK`, `STALE`, `DEAD`, `INVALID_HEARTBEAT_FORMAT`, `NO_HEARTBEAT_DATA`.
-    - Логирует подробный отчет о состоянии системы в `logs/health_report.log` каждые 5 секунд.
-
----
-
-### ✅ Новая возможность: RAM-кэш для JSON-файлов
-
-**Статус:** **Реализовано**
-
-- **Модуль:** `core/shared_json_cache.py`
-- **Назначение:** Централизованный RAM-кэш для всех часто используемых JSON-файлов (`telemetry.json`, `fsm_state.json`, и др.). Модуль использует фоновый поток для автоматического обновления данных из файлов, минимизируя операции дискового I/O и значительно повышая производительность.
-- **Отладка:** Для мониторинга и управления кэшем в реальном времени используется `tools/json_cache_debugger.py`.
-
----
-
-### ✅ Новая возможность: Проверка системной целостности
-
-**Статус:** **Реализовано**
-
-- **Модуль:** `tools/consistency_checker.py`
-- **Назначение:** Этот модуль работает в фоновом режиме и постоянно проверяет логическую согласованность между ключевыми компонентами системы: состоянием FSM, данными телеметрии и статусом миссий.
-- **Логирование:** Все обнаруженные аномалии, ошибки и несоответствия записываются в `logs/system_integrity.log`.
-- **Примеры проверок:**
-    - FSM находится в состоянии `charging` при полном заряде батареи.
-    - FSM находится в состоянии `error`, но все сенсоры сообщают `OK`.
-    - Отсутствие критически важных ключей в `telemetry.json`.
-
----
-
-### ✅ Новая возможность: Проверка системной целостности
-
-**Статус:** **Реализовано**
-
-- **Модуль:** `tools/consistency_checker.py`
-- **Назначение:** Этот модуль работает в фоновом режиме и постоянно проверяет логическую согласованность между ключевыми компонентами системы: состоянием FSM, данными телеметрии и статусом миссий.
-- **Логирование:** Все обнаруженные аномалии, ошибки и несоответствия записываются в `logs/consistency_log.json`.
-- **Примеры проверок:**
-    - FSM находится в состоянии `CHARGING` при полном заряде батареи.
-    - FSM находится в состоянии `MISSION_ACTIVE`, но навигационные сенсоры сообщают об ошибке.
-    - Отсутствие критически важных ключей в `telemetry.json`.
-
----
-
-### ✅ Недавние улучшения и стабилизация ядра (Июль 2025)
-
-В рамках текущего этапа разработки была проведена масштабная работа по стабилизации и улучшению ядра QIKI Bot. Ключевые изменения включают:
-
-*   **Адаптация CLI-интерфейсов:** Все CLI-интерфейсы (такие как `status_hud.py`, `navigation_monitor.py`, `sensor_overlay.py`, `state_monitor.py`, `system_health_monitor.py`, `system_monitor.py`, `cli_dashboard.py`, `system_dashboard.py`) были обновлены для корректной работы с новой иерархической структурой сенсорных данных в `sensors.json`.
-*   **Централизация FSM**: Взаимодействие с конечным автоматом (FSM) теперь полностью централизовано через `core/fsm_io.py` (для записи) и `core/fsm_client.py` (для чтения), что обеспечивает соблюдение архитектуры "FSM Lockdown" и предотвращает гонки состояний.
-*   **Актуализация правил и тестов:** Файл `config/rules.json` был обновлен для использования актуальных путей к сенсорным данным. Устаревшие и некорректные тестовые файлы были исправлены или удалены.
-*   **Очистка проекта:** Удалены устаревшие компоненты (например, старый веб-интерфейс) и дублирующая документация, что упрощает структуру проекта.
-*   **Улучшение скрипта запуска:** Скрипт `run_all.sh` был доработан для более наглядного логирования запуска всех фоновых модулей.
-
-Эти улучшения значительно повысили стабильность, надежность и поддерживаемость системы. Для получения полной и детальной истории всех изменений, пожалуйста, обратитесь к файлу `GEMINI_CHANGELOG.md`.
-
----
-
----
-### ✅ Новая возможность: Терминальный кокпит QIKI
-
-**Статус:** **Интегрирован (статичный)**
-
-- **Модуль:** `interfaces/cli/agent_monitor.py` был полностью переработан для отображения стилизованного терминального кокпита.
-- **Стиль:** Интерфейс выполнен в NASA-военном стиле с использованием ASCII-графики и ANSI-цветов.
-- **Функционал:** На данный момент кокпит является статичным представлением. Следующие шаги включают подключение к реальным данным из `shared_bus.json` и `sensors.json`, а также полную локализацию через `core/localization_manager.py`.
-
----
-### ✅ Новая возможность: Динамическая локализация интерфейса
-
-**Статус:** **Реализовано**
-
-- **Центральный файл локализации:** Все текстовые строки вынесены в `qiki_bot/config/locales.json`.
-- **Менеджер локализации:** Создан `qiki_bot/core/localization_manager.py` для управления языками.
-- **Двуязычный вывод:** Ключевые CLI-интерфейсы (`system_monitor`, `assistant`, `sensor_overlay`) теперь используют функцию `loc.get_dual()`, которая выводит текст в формате **"Русский | English"**.
-- **Гибкость:** Система по умолчанию использует русский язык, но может быть легко переключена или расширена.
-
----
-### ✅ Завершенная задача: Рефакторинг Сенсорной Подсистемы
-
-**Статус:** **Завершено**
-
-**Цель:** Переход от плоской структуры `sensors.json` к иерархической, модульной архитектуре, основанной на документе `RAW/датчики.txt`.
-
-**Реализация:**
-1.  **Модульная архитектура:** Сенсоры сгруппированы в специализированные кластеры (например, `Navigation`, `Power`, `RLSM`, `Proximity`, `Thrusters`, `Environment`, `SystemHealth`, `EW`), каждый из которых реализован как отдельный Python-класс в `qiki_bot/sensors/clusters/`.
-2.  **Иерархическая структура `sensors.json`:** Данные сенсоров теперь организованы в иерархическую структуру, отражающую их принадлежность к кластерам. Это обеспечивает лучшую читаемость и расширяемость.
-3.  **Централизованное управление:** `sensor_bus.py` отвечает за обновление, валидацию и агрегацию данных со всех сенсорных кластеров, записывая их в `sensors.json`.
-4.  **Улучшенная валидация и логгирование:** Каждый сенсорный кластер теперь включает метод `validate()`, который проверяет целостность и корректность данных. Активность сенсорной шины и результаты валидации подробно логируются в `logs/sensor_log.txt`.
-5.  **Адаптация потребителей:** Модули, использующие `sensors.json` (например, `rule_engine.py`), были адаптированы для работы с новой иерархической структурой данных.
-
----
-### ✅ Завершенная задача: Модуль предобработки сенсорных данных (Sensor Preprocessor Module)
-
-**Статус:** **Завершено**
-
-**Цель:** Создание промежуточного слоя для фильтрации, нормализации и валидации "сырых" сенсорных данных перед их использованием другими компонентами системы.
-
-**Реализация:**
-1.  **Модуль `core/sensor_preprocessor.py`:** Реализован класс `SensorPreprocessor` с методами `__init__`, `filter_noise`, `normalize`, `validate`, `get_clean_data`.
-2.  **Фильтрация шума:** Внедрена логика фильтрации неадекватных значений (например, значений вне допустимого диапазона) для ключевых сенсоров, с установкой `None` для отфильтрованных данных.
-3.  **Валидация данных:** Модуль проверяет структуру данных, наличие ожидаемых кластеров и их статусов, а также сообщает об ошибках, переданных из сенсорных кластеров.
-4.  **Тестирование:** Встроенная функция `test()` обеспечивает автоматическую проверку корректности работы модуля с тестовыми данными, включая гибкие утверждения, не зависящие от порядка ошибок.
-5.  **Интеграция:** Модуль готов к интеграции между `SensorManager` и потребителями сенсорных данных.
-
----
-### ✅ Модуль: qiki_world - Интерактивная тактическая 3D-панель
-
-**Статус:** **Реализовано и активно**
-
-**Цель:** Создание независимого модуля для 3D-визуализации, мониторинга и **полноценного интерактивного управления** состоянием `qiki_bot` в терминале. Модуль функционирует как "терминальная тактическая панель" с двусторонней связью.
-
-**Архитектура и компоненты:**
-- **Независимость:** `qiki_world` работает как отдельное приложение на чистом Python.
-- **Двусторонняя связь:** Взаимодействие с `qiki_bot` осуществляется асинхронно. **Чтение** данных происходит из `telemetry.json`, `shared_bus.json`, `fsm_state.json`. **Отправка команд** происходит путем записи в `fsm_requests.json`, что обеспечивает безопасное взаимодействие с ядром FSM.
-- **Интерактивное управление:** Использует неблокирующий ввод с клавиатуры (`termios`, `tty`, `select`) для управления камерой и отдачи команд.
-- **Многослойный ASCII 3D-рендер:** Генерирует и отображает 3D-сцену в терминале.
-
-**Ключевые возможности:**
-- **Режим ввода команд:** Нажатие `:` переводит панель в режим ввода, позволяя пользователю отправлять **произвольные текстовые команды** (например, `SET_MODE auto`) напрямую в систему управления `qiki_bot`.
-- **Отправка команд через меню:** Через интерактивное меню (клавиша E) можно отправлять предопределенные команды (например, `SET_TARGET` для выбора цели).
-- **Визуализация бота:** Отображение 3D-положения бота на основе `telemetry.json`.
-- **Мониторинг FSM:** Вывод текущего состояния (state) и последнего события (last_event) из `fsm_state.json`.
-- **Мониторинг агентной сети:** Отображение статусов и логических связей (`comm_link`) между агентами.
-- **Интерактивный HUD:** Нижняя панель экрана (HUD) предоставляет сводную информацию о состоянии FSM, агентов, их связей и системных сообщений.
-- **Управление камерой:** Свободное перемещение (W, A, S, D) и зум (+, -).
-- **Выбор объектов:** Переключение между объектами в сцене (TAB).
-- **Централизованный запуск:** Единая точка входа через `run_world.sh`.
